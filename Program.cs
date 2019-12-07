@@ -7,14 +7,14 @@ class Program
     //The number dealt to the players and the dealer.
     //protected int playerNumber;
     //protected int dealerNumber;
-    static void Main(string[] args)
+    public static void Main(string[] args)
     {
         //int numPlayers;
-        string input;
+        string players = "";
 
-        Console.Write("Number of players: \n");
-        input = Console.ReadLine();
-        Console.WriteLine("Input entered is '{0}'", input);
+        Console.WriteLine("Number of players: ");
+        players = Console.ReadLine();
+        Console.WriteLine(players);
         /**if(Int32.TryParse(input, out numPlayers))
         {
             numPlayers = Convert.ToInt32(input);
