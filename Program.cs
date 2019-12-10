@@ -1,4 +1,8 @@
-﻿using System;
+//Resources:
+//https://codereview.stackexchange.com/questions/60314/console-blackjack-game
+//12/10/19
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,6 +10,70 @@ using System.Threading.Tasks;
 
 namespace BeginnerBlackjack
 {
+    public enum Suit
+    {
+        Heart,
+        Diamond,
+        Club,
+        Spade
+    }
+
+    public enum Face
+    {
+        Ace,
+        Two,
+        Three,
+        Four,
+        Five,
+        Six,
+        Seven,
+        Eight,
+        Nine,
+        Ten,
+        Jack,
+        Queen,
+        King
+    }
+
+    public class Card
+    {
+        public Suit suit;
+        public Face face;
+        public int value;
+    }
+
+    public class Deck
+    {
+        private List<Card> cards;
+
+        public Deck()
+        {
+            
+        }
+
+        public void Start()
+        {
+            cards = new List<Card>();
+
+            for (int i = 0; i < Enum.GetNames(typeof(Suit)).Length; i++)
+            {
+                for (int j = 0; j <= Enum.GetNames(typeof(Face)).Length; j++)
+                {
+                    cards.Add(new Card() { suit = (Suit)i, face = (Face)j });
+
+                    if(j <= 8)
+                    {
+                        cards[cards.Count - 1].value = j + 1;
+                    }
+                    else
+                    {
+                        cards[cards.Count - 1].value = 10;
+                    }
+                }
+            }
+        }
+    }
+    
     class Basics
     {
         //Holds our current state.
